@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: #09111F;
+		--foreground: white;
+
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+
+		--primary: #09111F;
+		--primary-100: #3a414c;
+		--primary-200: #222935;
+		--primary-foreground: white;
+
+		--secondary: #FFCC00;
+		--secondary-100: #FFE680;
+		--secondary-200: #FFD11A;
+		--secondary-foreground: 09111F;
+
+		/*--muted: 240 4.8% 95.9%;*/
+		/*--muted-foreground: 240 3.8% 46.1%;*/
+
+		--accent: #CC07CD;
+		--accent-foreground: white;
+
+		--success: #40AC40;
+		--success-foreground: white;
+
+		--destructive: #DC4349;
+		--destructive-foreground: white;
+
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 240 10% 3.9%;
+
+		--dialog-background: #09111F;
+
+		--radius: 0.5rem;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+			to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))
+	) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
