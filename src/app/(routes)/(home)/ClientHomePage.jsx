@@ -10,8 +10,8 @@ import Services from "@/components/home/services";
 
 function ClientHomePage() {
     return (
-        <div className={'flex flex-col justify-center items-center'}>
-            <Image src={'../assets/logo.svg'} alt={'logo'} width={100} height={100} className={'w-32 sm:w-40 md:w-52 xl:w-60'}/>
+        <div className={'flex flex-col justify-center items-center mt-10'}>
+            <Image src={'/assets/logo.png'} alt={'logo'} width={100} height={100} className={'w-24 sm:w-28 md:w-36 xl:w-48'}/>
             <Text className={'text-xl sm:text-2xl md:text-4xl xl:text-6xl font-bold text-primary-foreground tracking-wide'}>{appName}</Text>
             <Text className={'text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold text-primary-foreground text-center tracking-wide'}>Welcome to Quify!</Text>
 

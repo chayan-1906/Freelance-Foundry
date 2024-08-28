@@ -1,5 +1,9 @@
 export const homePath = '/';
 
+/** auth */
+export const loginPath = '/sign-in';
+export const signUpPath = '/sign-up';
+
 /** services */
 export const servicesPath = '/services';
 
