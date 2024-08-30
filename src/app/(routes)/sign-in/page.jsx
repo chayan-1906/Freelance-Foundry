@@ -1,10 +1,10 @@
 import SharedLayout from "@/components/SharedLayout";
-import ClientLoginPage from "@/app/(routes)/sign-in/ClientLoginPage";
+import ClientSignInPage from "@/app/(routes)/sign-in/ClientSignInPage";
 
 function LoginPage() {
     return (
         <SharedLayout>
-            <ClientLoginPage/>
+            <ClientSignInPage/>
         </SharedLayout>
     );
 }

@@ -1,7 +1,6 @@
 import {Raleway} from "next/font/google";
 import "./globals.css";
 import '@radix-ui/themes/styles.css';
-import {Theme} from "@radix-ui/themes";
 import {appName, appTagline} from "@/globals/Constants";
 import ConfigureAmplifyClientSide from "@/app/amplify-cognito-config";
 
@@ -14,17 +13,14 @@ export const metadata = {
         template: `%s | ${appName}`,
     },
     description: '',
-};
+}
 
 function RootLayout({children}) {
     return (
-        <html lang="en">
+        <html lang="en" className={'dark'}>
         <body className={raleway.className}>
-        <Theme accentColor='amber' grayColor='#B0B0B0' appearance={'dark'}>
-            {/*<Theme appearance={'dark'}>*/}
             <ConfigureAmplifyClientSide/>
             {children}
-        </Theme>
         </body>
         </html>
     );

@@ -2,15 +2,23 @@
 
 import Image from "next/image";
 import {appName} from "@/globals/Constants";
-import {Button} from "@radix-ui/themes";
 import {FaGoogle} from "react-icons/fa6";
 import {MdOutlineArrowRight} from "react-icons/md";
 import {useState} from "react";
 import Link from "next/link";
 import {signUpPath} from "@/globals/Routes";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
+import {Label} from "@/components/ui/label";
+import {handleSignIn} from "@/utils/cognitoActions";
+import {useRouter} from "next/navigation";
 
-function ClientLoginPage() {
-    const [email, setEmail] = useState();
+function ClientSignInPage() {
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+    });
+    let router = useRouter();
 
     return (
         <div className={'flex flex-col mt-20 p-6 px-12 sm:px-20 max-w-xl items-center border rounded-md gap-6'}>
@@ -24,7 +32,7 @@ function ClientLoginPage() {
 
             {/** body / content */}
             <div className={'flex flex-col w-full gap-6'}>
-                <Button size={'3'} className={'!cursor-pointer'}><FaGoogle/>Continue with Google</Button>
+                <Button className={'flex gap-3'}><FaGoogle/>Continue with Google</Button>
                 <div className={'flex w-full items-center gap-4'}>
                     <div className={'border-t w-3/4'}/>
                     <span className={'font-bold'}>or</span>
@@ -33,19 +41,25 @@ function ClientLoginPage() {
 
                 {/** email address */}
                 <div className={'flex flex-col gap-2'}>
-                    <p className={'font-bold'}>Email Address</p>
-                    <input className={'border w-full rounded-md p-2'} type={'email'}/>
+                    <Label htmlFor={'email'} className={'font-bold'}>Email Address</Label>
+                    <Input id={'email'} className={'border w-full rounded-md p-2'} type={'email'} onChange={(e) => setForm({...form, email: e.target.value})}/>
                 </div>
 
-                <Button size={'3'} className={'!cursor-pointer'} disabled={!email}>Continue <MdOutlineArrowRight size={24}/></Button>
+                {/** password */}
+                <div className={'flex flex-col gap-2'}>
+                    <Label htmlFor={'password'} className={'font-bold'}>Password</Label>
+                    <Input id={'password'} className={'border w-full rounded-md p-2'} type={'password'} onChange={(e) => setForm({...form, password: e.target.value})}/>
+                </div>
+
+                <Button disabled={!form.email || !form.password} onClick={() => handleSignIn(null, form, router)}>Continue <MdOutlineArrowRight size={24}/></Button>
             </div>
 
             {/** footer */}
             <div>
-                <p>Don&apos;t have an account? <Link href={signUpPath}><span className={'font-bold text-secondary'}>Sign Up</span></Link></p>
+                <p>Don&apos;t have an account? <Link href={signUpPath}><span className={'font-bold text-destructive'}>Sign Up</span></Link></p>
             </div>
         </div>
     );
 }
 
-export default ClientLoginPage;
+export default ClientSignInPage;

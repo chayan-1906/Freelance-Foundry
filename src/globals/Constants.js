@@ -28,3 +28,7 @@ export const services = [
         'route': mentorshipPath,
     },
 ];
+
+
+export const NEXT_PUBLIC_USER_POOL_ID = 'us-east-1_fJBw6qNIa';
+export const NEXT_PUBLIC_USER_POOL_CLIENT_ID='2ruubptkoq6c2t5nhcaqeji8vr';
