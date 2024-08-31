@@ -7,19 +7,16 @@ import {appName} from "@/globals/Constants";
 import {Button} from "@/components/ui/button";
 import {handleSignOut} from "@/utils/cognitoActions";
 import {useRouter} from "next/navigation";
-import {useEffect} from "react";
-import {authenticatedUser} from "@/utils/amplify-server-utils";
 
 function Navbar() {
     let router = useRouter();
 
-    useEffect(() => {
+    /*useEffect(() => {
         async function checkAuth() {
             await authenticatedUser();
         }
-
         checkAuth();
-    }, []);
+    }, []);*/
 
     return (
         <div className={'flex flex-1 fixed left-0 right-0 items-center justify-between bg-black'}>
@@ -35,6 +32,7 @@ function Navbar() {
                     <Button variant={'ghost'} size={'4'} className={'!cursor-pointer'}>Services</Button>
                 </Link>
                 <Button variant={'ghost'} size={'4'} className={'!cursor-pointer'}>Work with us</Button>
+                {/** TODO: display it conditionally */}
                 <Button variant={'destructive'} className={'!cursor-pointer'} onClick={() => handleSignOut(router)}>Logout</Button>
             </div>
         </div>

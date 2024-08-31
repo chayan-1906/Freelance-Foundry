@@ -13,6 +13,7 @@ import {useRouter} from "next/navigation";
 function ClientHomePage() {
     let router = useRouter();
 
+    /** TODO: conditionally navigate to login page */
     const handleSubmitCustomRequest = useCallback(() => {
         router.push(signInPath);
     }, [router]);
